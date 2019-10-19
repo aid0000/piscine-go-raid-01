@@ -68,6 +68,6 @@ func Raid1b(a, b int) {
 	} else if a == 1 {
 		middle1(a, b)
 	} else if a < 0 || b < 0 {
-		return 
+		return
 	}
 }
