@@ -56,7 +56,7 @@ func middle1(a, b int) {
 	}
 }
 
-func Raid1b(a, b int) {
+func Raid1c(a, b int) {
 	if a >= 2 && b > 1 {
 		startEnd(a, b)
 		for i := b - 2; i > 0; i-- {
