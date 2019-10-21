@@ -1,73 +1,25 @@
 package student
 
-import (
-	"github.com/01-edu/z01"
-)
+import "github.com/01-edu/z01"
 
-func startEnd(a, b int) {
-	z01.PrintRune('A')
-	for i := a - 3; i >= 0; i-- {
-		z01.PrintRune('B')
-	}
-	z01.PrintRune('A')
-	z01.PrintRune(10)
-}
-
-func startEnd0(a, b int) {
-	z01.PrintRune('C')
-	for i := a - 3; i >= 0; i-- {
-		z01.PrintRune('B')
-	}
-	z01.PrintRune('C')
-	z01.PrintRune(10)
-}
-
-func middle(a, b int) {
-	if b > 2 {
-		z01.PrintRune('B')
-		for i := a - 3; i >= 0; i-- {
-			z01.PrintRune(' ')
-		}
-		z01.PrintRune('B')
-		z01.PrintRune(10)
-	}
-}
-
-func middle1(a, b int) {
-	if b == 1 {
-		z01.PrintRune('A')
-		z01.PrintRune(10)
-	}
-	if b == 2 {
-		z01.PrintRune('A')
-		z01.PrintRune(10)
-		z01.PrintRune('C')
-		z01.PrintRune(10)
-	}
-	if b > 2 {
-		z01.PrintRune('A')
-		z01.PrintRune(10)
-		for i := b - 2; i > 0; i-- {
-			z01.PrintRune('B')
-			z01.PrintRune(10)
-		}
-		z01.PrintRune('C')
-		z01.PrintRune(10)
-	}
-}
-
-func Raid1c(a, b int) {
-	if a >= 2 && b > 1 {
-		startEnd(a, b)
-		for i := b - 2; i > 0; i-- {
-			middle(a, b)
-		}
-		startEnd0(a, b)
-	} else if a >= 2 && b == 1 {
-		startEnd(a, b)
-	} else if a == 1 {
-		middle1(a, b)
-	} else if a < 0 || b < 0 {
+func Raid1c(x, y int) {
+	if x <= 0 || y <= 0 {
 		return
+	}
+	for y1 := 0; y1 < y; y1++ {
+		for x1 := 0; x1 < x; x1++ {
+			if (y1 == 0 && x1 == 0) || (y1 == 0 && x1 == x-1) {
+				z01.PrintRune('A')
+			} else if (y1 == y-1 && x1 == x-1) || (y1 == y-1 && x1 == 0) {
+				z01.PrintRune('C')
+			} else if x1 == x-1 || x1 == 0 {
+				z01.PrintRune('B')
+			} else if y1 == y-1 || y1 == 0 {
+				z01.PrintRune('B')
+			} else {
+				z01.PrintRune(' ')
+			}
+		}
+		z01.PrintRune(10)
 	}
 }
